@@ -1,59 +1,129 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Simulador de crediito</title>
+    <title>Simulador de credito</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="./scripts2.js"></script> 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> 
+  
+    <link rel="stylesheet" href="./main.css"> 
+
+    
 
   </head>
   <body class="bg-dark">
+    <div class="colorgrad">
+      
     <div class="container">
       <div class="row">
-        <div class="col-md-5 mx-auto">
+
+        <section class="divide">
+          <section class=bienvenida>
+            <div class="left">
+              Ten la certeza de confiar tu patrimonio con nosotros...
+
+          </div>
+            <p>Somos expertos en hacer el trabajo por ti, seguridad en sistemas IT 100%  confiables. Cientos de clientes nos respaldan.
+
+            </p>
+
+            <div promotions>
+              <button type="button" class="btn btn-outline-primary">Comienza tu credito</button>
+              <button type="button" class="btn btn-outline-success">Conoce nuestros clientes</button>
+
+            </div>
+          </section>
+        <section class="simulador">
+        <div class="col-md-14 mx-auto">
           <div class="card card-body text-center mt-5">
-            <h1 class="heading display-5 pb-3">Simulador de credito</h1>
+            <h2 class="heading display-5 pb-3"> 📊 Simulador de crédito </h2>
 
         <!-- ----------------FORM-------------- -->
             
         <form class="navbar-form navbar-left" >
-
+          <div class="form-group">
     <!-- Monto deseado -->
             <div class="form-group">
-            Monto deseado:
-            <input type = "text" class="form-control"  id= "montoDeseado"/> <br>
             
-            <label for="customRange1" class="form-label">Example range</label>
-            <input type="range" class="form-range" id="customRange1">
+    <!-- Range Mono Deseado-->
+            <div class="container">
 
+              <form>
+                <div class="form-group">
+                  💰 Monto deseado:
+                  <label for="formControlRange"></label>
+                  <input type="range" value="10000" min="10000" max="100000"  class="form-control-range" id= "montoDeseado" step="10000" onInput="$('#rangeval').html($(this).val())">
+                  $
+                  <span id="rangeval" > 10000<!-- Default value --></span>
+                </div>
+              </div>
 
-          </div>
-
+            </div>
+          </form>
     <!-- Tasa anual -->
             <div class="form-group">
-              Tasa anual:
-              <input type = "text" class="form-control " id= "tasaAnual" /> <br> 
-           </div>
+             
+          
+
+           <!-- Range Tasa Anual -->
+           <div class="container">
+
+            <form>
+              <div class="form-group">
+                🗓 Tasa Anual:
+                <label for="formControlRange"></label>
+                <input type="range" value="8" min="8" max="20"  class="form-control-range" id= "tasaAnual" step=".1" onInput="$('#rangeval2').html($(this).val())">
+                
+                <span id="rangeval2" > 0<!-- Default value --></span>%
+              </div>
+            </div>
+
+          </div>
+        </form>
 
     <!-- Plazo en Meses -->
-            Plazo en meses 12/24/36:
-            <input type = "text" class="form-control " id= "plazoMeses" /> 
-    
+            📅  Plazo en meses 12/24/36:
+            <input type = "text" class="form-control " id= "plazoMeses"/> 
+
+        <!-- botones meses  -->
+       
+
+      
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="option" id="option1" autocomplete="off" value="12" checked> 12
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="option" id="option2" autocomplete="off" value="24"> 24
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="option" id="option3" autocomplete="off" value="36"> 36
+          </label>
+        </div>
+         
+             <br>
+
     <!-- Boton  -->
            
-            <input type = "button" onClick= "pagoMensual(); montoNeto(); totalPagado()" class="btn btn-default" Value= "Calcular"/> 
+            <input type = "button" onClick= "pagoMensual(); montoNeto(); totalPagado() ; info(); " class="btn btn-default" Value= "Calcular"/> 
 
             <!-- Resultados  -->
-     <div class="form-group">
+            <div class="input-group"></div>
+            <span id= "premium" class="form-control"></span>
+          </div>
+            <br>
 
           <!-- Resultado pago mensual  -->
                 <div class="input-group"> 
                   Pago Mensual: 
                   <span class="form-control"  id="result" aria-describedby="basic-addon1"   ></span>          
                 </div>
+                
+                
+
 
          <!-- comision por apertura  -->
               <div class="input-group"> 
@@ -77,86 +147,30 @@
             </div>
        
 
--------------------------------------------------------------
 <hr>
 
-            <form id="tip-form">
-
-                <!-- 1st input -->
-
-
-              <div class="form-group">
-                  
-                    <div class="input">
-                    <span class="input-group-addon">$</span>
-                    <input type="number" class="form-control"
-                    
-                    id="billTotal" placeholder="Monto deseado">
-                    </div>
-              </div>
-              <!-- Control input -->
-            
-              <div class="form-group tipPersent">
-                <div class="input-group">
-                  <label for="">Monto deseado:</label>
-
-                    <!-- Range -->
-
-                  <input type="range" class="form-control" id="tipInput" value="0">
-                  <span class="input-group-addon" id="tipOutput"></span>
-                </div>
-              </div>
-
-
-
-            </form>
             <hr>
 
-            <!-- RESULTS -->
-            <div id="results" class="pt-4">
-              <h5>Resultados</h5>
-
-              <div class="form-group">
-
-                <div class="input-group">
-
-
-                  <span class="input-group-addon">Pago mensual</span>
-                  <input type="number" class="form-control" id="tipAmount" >
-                </div>
-              </div>
-
-              <div class="form-group">
-                <div class="input-group">
-                  <span class="input-group-addon">Total pagado</span>
-                  <input type="number" class="form-control" id="totalBillWithTip" >
-                </div>
-              </div>
-
-
-            </div>
+  
 <hr>
-                           <!------------- meses--------- -->
-                           <h2>Plazo en meses:</h2>
-
-                           <div class="btn-group btn-group-toggle" 
-                           
-                           data-toggle="buttons">
-                               <label class="btn btn-secondary active">
-                                 <input type="radio" name="options" id="12" autocomplete="off" checked> 12
-                               </label>
-                               <label class="btn btn-secondary">
-                                 <input type="radio" name="options" id="24" autocomplete="off"> 24
-                               </label>
-                               <label class="btn btn-secondary">
-                                 <input type="radio" name="options" id="36" autocomplete="off"> 36
-                               </label>
-                             </div>
+                          
            
           </div>
         </div>
       </div>
-    </div>
+    
+  </div>
+  
+  </section>
+  <section class="extras">
+
+      <div class="extra1">
+
+        Caracteristicas disenadas para ti:
+      </div>
+  </section>
+</section>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

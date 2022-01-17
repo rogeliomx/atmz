@@ -1,0 +1,47 @@
+/* .bg-dark {
+    /* background-image: linear-gradient(#8c6594, #6a2179  ); 
+    
+    }
+.colorgrad{
+    
+    background-image: url('./images/bg.jpg')  ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+.divide{
+    width: 64em;
+    border: white 2px dotted;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+.left{
+    
+    border: rgb(247, 230, 0) 2px solid;
+    color:white;
+    font-size: 40px;
+    padding: 20px;
+    
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+.bienvenida{
+    height: 500px;  
+    width: 10 em;
+    border: rgb(0, 252, 248) 2px solid;
+    
+}
+
+
+
+.p{
+    color:white
+} */

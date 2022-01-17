@@ -1,4 +1,5 @@
 {
     "workbench.preferredLightColorTheme": "Autumn Leaf",
-    "workbench.colorTheme": "Solarized Light"
+    "workbench.colorTheme": "Solarized Light",
+    "workbench.activityBar.iconClickBehavior": "focus"
 }
