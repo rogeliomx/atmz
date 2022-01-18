@@ -19,8 +19,19 @@
            
         }
 
+        .extras{
+            margin-top: 700px;
+        }
+
     }
       
+    @media (max-width: 720px) {
+     
+        .extras{
+            margin-top: 700px;
+        }
+
+    }
     
 
 .colorgrad{
@@ -49,7 +60,7 @@
 
    background-image: radial-gradient(circle, rgba(115,9,121,0.7777310753402924) 0%, rgba(115,9,121,0.7917366775811887) 20%, rgba(233,0,255,0) 80%);
     width: 64em;
-    border: white 2px dotted;
+
     padding: 20px;
     /* margin-bottom: 100px; */
     display: flex;
@@ -142,7 +153,7 @@
 
 .extras{
     background-color: rgba(98, 75, 100, 0.778);
-    /* background-image: radial-gradient(circle, rgba(195, 178, 201, 0.778) (0rgba(243, 231, 247, 0.792)92) 20%, rgba(255, 255, 255, 0.53) 80%); */
+   
     height: 1200px;
     
     font-family: 'Catamaran', sans-serif;
