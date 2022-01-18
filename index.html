@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="./scripts2.js"></script> 
+    
     <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> 
   
@@ -40,7 +40,64 @@
         <div class="col-md-14 mx-auto">
           <div class="card card-body text-center mt-5">
             <h2 class="heading display-5 pb-3"> 📊 Simulador de crédito </h2>
+          
+            <!-- form  -->
+            <form onsubmit="sendForm(event);">
 
+              <div>
+                <label for="nombre">Nombre</label>
+                <input type="text"  name="mensual" />
+                <br>
+                Monto:
+                <input type="range" value="10000" min="10000" max="100000" step="10000" name="monto" onInput="$('#reflect2').html($(this).val())" />
+                <span id="reflect2" >10000</span>
+                <br>
+                Tasa Anual:
+                <input type="range" value="8.9" min="8.9" max="13" step="0.8" name="tasa" onInput="$('#reflect').html($(this).val())" />
+
+                <span id="reflect" >8.9</span>%
+
+                <br>
+                <input type="radio" id="email" name="plazo" value="12" />
+                <label for="email">12</label>
+        
+                <input type="radio" id="phone" name="plazo" value="24" />
+                <label for="phone">24</label>
+        
+                <input type="radio" id="phone" name="plazo" value="36" />
+                <label for="phone">36</label>
+              </div>
+              <div>
+                <button id="submit" type="submit">Submit</button>
+              </div>
+            </form>
+
+           
+            <!-- <p id="mensual"></p> -->
+            Pago Mensual:
+            <p id="monto"></p>
+            Monto Neto:
+            <p id="neto"></p>
+
+            <!-- Comision de apertura: <br>
+            <input type="text" class="form-control"  id="apertura" name="apertura" value="340"/> -->
+                
+
+            Monto Neto Depositado
+            <!-- <p id="tasa"></p> -->
+            
+            Meses:
+            <p id="plazo"></p>
+
+            Pago Mensual:
+            <p id="result"></p>
+
+            
+
+
+
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
         <!-- ----------------FORM-------------- -->
             
         <form class="navbar-form navbar-left" >
@@ -171,7 +228,7 @@
   </section>
 </section>
 
-
+<script src="./scripts2.js"></script> 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
