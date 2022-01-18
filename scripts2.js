@@ -4,17 +4,24 @@ function op (value){
 }
 
 function monto (monto, plazo, tasa){
-  console.log(monto/plazo)
+  // console.log(monto/plazo)
+  // console.log(monto,plazo,tasa)
+
   document.querySelector("#monto").innerText = (((monto/plazo) * tasa)/100) + (monto/plazo) ;
-  // document.getElementById("mensual").innerHTML = parseFloat() 
-}
-
-function neto (monto, plazo, ){
-  console.log(monto*plazo)
-  
-  document.querySelector("#neto").innerText = monto*plazo;
 
 }
+
+function neto (monto, plazo, tasa){
+  // console.log(monto, plazo, tasa)
+  document.querySelector("#neto").innerText = (monto * plazo) -340;
+
+}
+
+function total (monto, plazo, tasa) {
+  console.log((parseFloat(monto) + 340) + ((parseFloat(monto/plazo) * tasa)/100))
+ 
+  document.querySelector("#total").innerText = ((parseFloat(monto) + 340) + ((parseFloat(monto/plazo) * tasa)/100))
+  }
 
 const sendForm = (event) => {
   event.preventDefault();
@@ -24,10 +31,7 @@ const sendForm = (event) => {
   for (const [name, value] of data) {
     objectForm = { ...objectForm, [name]: value };
 
-    // if (name === "mensual") {
-    //   op(value);
-    // }
-
+ 
     switch (name) {
       case "mensual":
         op(value);
@@ -36,14 +40,15 @@ const sendForm = (event) => {
           monto(value, event.target.plazo.value, event.target.tasa.value) 
           break;
           case "tasa":
-            neto(value, event.target.plazo.value, event.target.monto.value) 
-        console.log("tasa")
+            neto(event.target.monto.value, event.target.plazo.value, event.target.tasa.value) 
+        // console.log(neto)
           break;
+          
      
     }
-
-
+    
   }
+  total(objectForm.monto, objectForm.plazo, objectForm.tasa) 
     // operations 
  
   
@@ -54,7 +59,7 @@ const sendForm = (event) => {
   // document.querySelector("#plazo").innerText = objectForm.plazo;
   // document.querySelector("cantidad").innerText = objectForm.cantidad;
 
-  console.log(objectForm);
+  // console.log(objectForm);
 };  
 
 
